@@ -61,34 +61,29 @@ image.
 The IDCT equation can be seen below:  
 
 
-#+CAPTION: Image of the IDCT equation
-#+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
 [[file:./images/eq3.png]]
+Image of the IDCT equation
 
 
 Where: 
 
 
-#+CAPTION: Image of the IDCT equation
-#+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
 [[file:./images/eq4.png]]
+Image of conditions
 
 Where u and v are the value for the input matrix (DCT) and f(x,y) is
 the data for the uncompressed image.
 
 * Figures and Tables 
 
- #+CAPTION: Screenshot Lena Image
- #+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
 [[file:./images/lena_screenshot.png]]
+Screenshot Lena Image
   
- #+CAPTION: Screenshot Output of the DCT (Compressed)
- #+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
 [[file:./images/compressed_screenshot.png]]  
+Screenshot Output of the DCT (Compressed)
 
- #+CAPTION: Screenshot Output of the IDCT (Uncompressed)
- #+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
 [[file:./images/lena_decompressed_screenshot.png]]    
+Screenshot Output of the IDCT (Uncompressed)
 
 The reason as to why the image is of lesser quality is due to the fact that is has been initially quantized when it was compressed. Quantization is a lossy process 
  therefore some data will be lost during the compression. 
