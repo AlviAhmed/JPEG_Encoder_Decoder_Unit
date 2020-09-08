@@ -91,7 +91,5 @@ The reason as to why the image is of lesser quality is due to the fact that is h
 However, if quantization was not used and just zigzag and DCT were used, since there are lossless processes, when compressed and uncompressed, the output will be the 
 same as the original.
 
-* References 
-	- https://ee.ryerson.ca/~courses/coe838/labs/lab2b.pdf 
 
 
