@@ -5,11 +5,91 @@
 
 
 * Objectives 
+  The purpose of this lab is develop a JPEG Encoder / Decoder unit for SoC. 
 
 * Theory
+There are 4 stages of JPEG compression and JPEG decompression. These 4 stages are DCT, Quantization, Zig Zag and Entropy Encoding. 
+
+For this lab we were reponsible for just DCT, Quantization and Zig Zag. 
 
 ** Compression 
 
+Before the image is applied with DCT it must be first pre-processed. The It is preprocessed by
+dividing image into 8x8 blocks. The image is also level-shifted so that the frequency domain of the
+data moves to the right of the origin. Level shifting is done by substracting 128 from each pixel.
+Each 8x8 block has DCT applied to it, thus making each 8x8 block of image data into a 8x8 block
+of frequencies or sum of cosines.
+The following equation is used for DCT 
+
+#+CAPTION: Image of the DCT equation
+#+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
+[[file:./images/eq1.png]]
+
+
+Where: 
+
+#+CAPTION: Image of the conditions
+#+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
+[[file:./images/eq2.png]]
+
+The input matrix values are the x and y , and the output matrix is F (u, v) .
+Next the Quantizer is applied to get rid of the higher frequency wave forms (since they are not
+needed) and keeps the lower frequency waveforms since they represent the majority of the image.
+The way the quantizer is applied is by divided the DCT matrix by the quantization table.
+The one used in the lab can be seen below. 
+
+#+CAPTION: Image of the quantization table
+#+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
+[[file:./images/quant_table.png]]
+
+
+Next the ZigZag converts each 8x8 block char array into a 1x64 char array.
+The output is a compressed file (without Huffman Encoding) that is in a character format, not a
+double. In compression you are writing char, not double to a file, since char is a useful data type
+in the fact that it has a fixed size on multiple machines, whereas different data types may have
+different sizes on different machines.
+
+
+
 ** Decompression 
 
+For decompression, the above method is utilized but in reverse, the 1x64 array is unzigzagged, from
+1x64 to 8x8. Then the quantizer table is multiplied to each block, instead of being divided by it.
+After being unquantized, IDCT is then applied to each 8x8 block, thus bringing back the original
+image. 
+
+The IDCT equation can be seen below:  
+
+
+[[file:./images/eq3.png]]
+Image of the IDCT equation
+
+
+Where: 
+
+
+[[file:./images/eq4.png]]
+Image of conditions
+
+Where u and v are the value for the input matrix (DCT) and f(x,y) is
+the data for the uncompressed image.
+
 * Figures and Tables 
+
+[[file:./images/lena_screenshot.png]]
+Screenshot Lena Image
+  
+[[file:./images/compressed_screenshot.png]]  
+Screenshot Output of the DCT (Compressed)
+
+[[file:./images/lena_decompressed_screenshot.png]]    
+Screenshot Output of the IDCT (Uncompressed)
+
+The reason as to why the image is of lesser quality is due to the fact that is has been initially quantized when it was compressed. Quantization is a lossy process 
+ therefore some data will be lost during the compression. 
+
+However, if quantization was not used and just zigzag and DCT were used, since there are lossless processes, when compressed and uncompressed, the output will be the 
+same as the original.
+
+
+
