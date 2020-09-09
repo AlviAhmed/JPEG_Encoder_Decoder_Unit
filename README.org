@@ -22,12 +22,14 @@ of frequencies or sum of cosines.
 The following equation is used for DCT 
 
 [[file:./images/eq1.png]]
+
 Image of the DCT equation
 
 
 Where: 
 
 [[file:./images/eq2.png]]
+
 Image of the conditions
 
 The input matrix values are the x and y , and the output matrix is F (u, v) .
@@ -37,6 +39,7 @@ The way the quantizer is applied is by divided the DCT matrix by the quantizatio
 The one used in the lab can be seen below. 
 
 [[file:./images/quant_table.png]]
+
 Image of the quantization table
 
 
@@ -59,6 +62,7 @@ The IDCT equation can be seen below:
 
 
 [[file:./images/eq3.png]]
+
 Image of the IDCT equation
 
 
@@ -66,6 +70,7 @@ Where:
 
 
 [[file:./images/eq4.png]]
+
 Image of conditions
 
 Where u and v are the value for the input matrix (DCT) and f(x,y) is
@@ -74,12 +79,15 @@ the data for the uncompressed image.
 * Figures and Results
 
 [[file:./images/lena_screenshot.png]]
+
 Screenshot Lena Image
   
 [[file:./images/compressed_screenshot.png]]  
+
 Screenshot Output of the DCT (Compressed)
 
 [[file:./images/lena_decompressed_screenshot.png]]    
+
 Screenshot Output of the IDCT (Uncompressed)
 
 The reason as to why the image is of lesser quality is due to the fact that is has been initially quantized when it was compressed. Quantization is a lossy process 
