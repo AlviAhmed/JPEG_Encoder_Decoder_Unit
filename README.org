@@ -21,16 +21,14 @@ Each 8x8 block has DCT applied to it, thus making each 8x8 block of image data i
 of frequencies or sum of cosines.
 The following equation is used for DCT 
 
-#+CAPTION: Image of the DCT equation
-#+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
 [[file:./images/eq1.png]]
+Image of the DCT equation
 
 
 Where: 
 
-#+CAPTION: Image of the conditions
-#+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
 [[file:./images/eq2.png]]
+Image of the conditions
 
 The input matrix values are the x and y , and the output matrix is F (u, v) .
 Next the Quantizer is applied to get rid of the higher frequency wave forms (since they are not
@@ -38,9 +36,8 @@ needed) and keeps the lower frequency waveforms since they represent the majorit
 The way the quantizer is applied is by divided the DCT matrix by the quantization table.
 The one used in the lab can be seen below. 
 
-#+CAPTION: Image of the quantization table
-#+ATTR_LATEX: :placement [H] :width 0.6\linewidth 
 [[file:./images/quant_table.png]]
+Image of the quantization table
 
 
 Next the ZigZag converts each 8x8 block char array into a 1x64 char array.
